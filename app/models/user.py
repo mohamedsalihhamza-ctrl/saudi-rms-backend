@@ -21,7 +21,7 @@ class Organization(Base):
     stripe_customer_id: Mapped[str | None] = mapped_column(String(100), nullable=True)
     max_hotels: Mapped[int] = mapped_column(default=5)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc))
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
 
     users = relationship("User", back_populates="organization", cascade="all, delete-orphan")
     hotels = relationship("Hotel", back_populates="organization")
@@ -39,7 +39,7 @@ class User(Base):
     role: Mapped[str] = mapped_column(String(20), default="admin")
     preferred_language: Mapped[str] = mapped_column(String(10), default="ar")
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc))
-    last_login: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
+    last_login: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
     organization = relationship("Organization", back_populates="users")

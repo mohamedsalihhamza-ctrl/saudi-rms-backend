@@ -20,8 +20,8 @@ class Booking(Base):
     booking_rate: Mapped[float] = mapped_column(Float, nullable=False)
     channel: Mapped[str] = mapped_column(String(50), default="direct")
     status: Mapped[str] = mapped_column(String(20), default="confirmed")
-    booked_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc))
-    canceled_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc))
+    booked_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
+    canceled_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
 
     hotel = relationship("Hotel", back_populates="bookings")
