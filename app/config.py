@@ -23,6 +23,9 @@ class Settings(BaseSettings):
 
     openai_api_key: str = ""
 
+    google_client_id: str = ""
+    apple_client_id: str = ""
+
     zatca_api_url: str = ""
     zatca_api_key: str = ""
 

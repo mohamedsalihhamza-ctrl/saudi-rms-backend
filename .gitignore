@@ -19,3 +19,7 @@ build/
 dist/
 instance/
 venv/
+
+# Vercel serverless artifacts (we use Cloudflare Tunnel)
+api/
+vercel_app.py

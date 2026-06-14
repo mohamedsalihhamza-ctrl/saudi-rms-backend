@@ -51,6 +51,15 @@ class OrganizationResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
 
+class SSOLoginResponse(BaseModel):
+    id_token: str
+
+
+class SSOStatus(BaseModel):
+    google_enabled: bool
+    apple_enabled: bool
+
+
 class OrganizationUpdate(BaseModel):
     name: str | None = None
     name_ar: str | None = None
