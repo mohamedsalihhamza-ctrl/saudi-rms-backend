@@ -5,8 +5,8 @@ services:
     plan: free
     region: ohio
     branch: main
-    dockerfilePath: ./backend/Dockerfile
-    dockerContext: ./backend
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
     healthCheckPath: /health
     envVars:
       - key: ENVIRONMENT
