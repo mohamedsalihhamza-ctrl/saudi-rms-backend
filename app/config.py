@@ -23,6 +23,10 @@ class Settings(BaseSettings):
 
     openai_api_key: str = ""
 
+    payment_provider: str = "mock"
+    moyasar_secret_key: str = ""
+    moyasar_publishable_key: str = ""
+
     google_client_id: str = ""
     apple_client_id: str = ""
 
